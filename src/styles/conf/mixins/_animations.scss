@@ -1,0 +1,68 @@
+// ------------------
+// --     Usage    --
+// ------------------
+
+// @include keyframes(slide-down) {
+//   0% { opacity: 1; }
+//   90% { opacity: 0; }
+// }
+
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('slide-down 5s 3');
+// }
+
+
+// ------------------
+// --  Mixins  --
+// ------------------
+
+@mixin animation (
+  $animation,
+  $time      : 1s,
+  $iterations: infinite,
+  $speedCurve: linear,
+  $delay     : false,
+  $direction : false,
+  $state     : false
+){
+  @if ($delay)    { @include animation-delay($delay); }
+  @if ($direction){ @include animation-direction($direction); }
+  @if ($state)    { @include animation-state($state); }
+
+  @include css3-prefix('animation', $animation $time $speedCurve $iterations);
+}
+
+@mixin animation-name($name...) {
+  @include css3-prefix('animation-name', $name);
+}
+@mixin animation-name($duration...) {
+  @include css3-prefix('animation-duration', $duration);
+}
+
+@mixin animation-delay($delay: 0){
+  -webkit-animation-delay: $delay;
+  animation-delay      : $delay;
+}
+
+@mixin animation-direction($dir: normal){
+  // normal | reverse | alternate | alternate-reverse | initial | inherit
+  -webkit-animation-direction: $dir;
+  animation-direction      : $dir;
+}
+
+@mixin animation-state($state: normal){
+  // paused | running | initial | inherit
+  -webkit-animation-play-state: $state;
+  animation-play-state      : $state;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes  #{$animation-name} { @content; }
+  @-moz-keyframes     #{$animation-name} { @content; }
+  @-ms-keyframes      #{$animation-name} { @content; }
+  @-o-keyframes       #{$animation-name} { @content; }
+  @keyframes          #{$animation-name} { @content; }
+}

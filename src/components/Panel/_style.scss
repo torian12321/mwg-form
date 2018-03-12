@@ -1,0 +1,46 @@
+@import '../../styles/conf/index.scss';
+
+// Vars
+$panel-color-main: $themeColor_1 !default;
+$panel-color-sec : $themeColor_2 !default;
+$panel-font-size : $font-size !default;
+
+// Mixins
+@mixin panel_palette(
+  $color-bg  : $panel-color-main,
+  $color-text: smartColor($color-bg)
+) {
+  background: fade-out($color-bg, .15);
+	color     : $color-text;
+}
+
+// Block
+.panel {
+  position  : relative;
+  width     : 100%;
+  min-height: 100px;
+  padding   : 32px;
+  background: $panel-color-main;
+  box-sizing: content-box;
+  font-size : $panel-font-size;
+  box-sizing: border-box;
+  @include shadow(0 0 8px 0 rgba(0, 0, 0, .4));
+  @include smart-text-color($panel-color-main);
+
+  // Modifiers
+  &,
+  &--main { @include panel_palette($panel-color-main, $panel-color-sec); }
+  &--sec  { @include panel_palette($panel-color-sec , $panel-color-main); }
+  &--white{ @include panel_palette($white); }
+
+
+  @include bp-md {
+    padding: 48px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .6em;
+    text-align   : center;
+    font-weight  : bold;
+  }
+}

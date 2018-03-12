@@ -1,0 +1,36 @@
+@function smartColor (
+  $color     : $themeColor_BG,
+  $colorLight: $white,
+  $colorDark : $black,
+  $reference : 50
+){
+  @if (lightness( $color ) > $reference) {
+    @return $colorDark;
+  } @else {
+    @return $colorLight;
+  }
+}
+
+@mixin smart-text-color (
+  $BG        : $themeColor_BG,
+  $colorLight: $fontColor_white,
+  $colorDark : $fontColor_black
+){
+  color: smartColor($BG, $colorLight, $colorDark);
+}
+
+@mixin smart-bg-color (
+  $BG        : $themeColor_BG,
+  $colorLight: $white,
+  $colorDark : $black2
+){
+  background: smartColor($BG, $colorLight, $colorDark);
+}
+
+@mixin smart-fill-color (
+  $BG        : $themeColor_BG,
+  $colorLight: $white,
+  $colorDark : $black2
+){
+  fill: smartColor($BG, $colorLight, $colorDark);
+}

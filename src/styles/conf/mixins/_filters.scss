@@ -1,0 +1,10 @@
+@mixin filter($filter...) {
+  @include css3-prefix('filter', $filter);
+}
+
+@mixin blur ($blur: 5px) {
+  @include filter(blur($blur));
+}
+@mixin BW ($grayScale: 50%) {
+  @include filter(grayscale($grayScale));
+}

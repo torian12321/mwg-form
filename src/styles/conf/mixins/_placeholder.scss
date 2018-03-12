@@ -1,0 +1,15 @@
+// Usage
+
+// input,
+// textarea {
+//   @include input-placeholder {
+//     color: grey;
+//   }
+// }
+
+@mixin input-placeholder {
+  &:-moz-placeholder          { @content; }
+  &::-moz-placeholder         { @content; }
+  &:-ms-input-placeholder     { @content; }
+  &::-webkit-input-placeholder{ @content; }
+}

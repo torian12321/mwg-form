@@ -1,0 +1,50 @@
+// Mixins
+@mixin generate-margins (
+  $steps    : 10,
+  $increment: 5
+){
+  @for $index from 1 through $steps {
+    $val : $index * $increment;
+    $size: unquote($val + 'px');
+
+    .m-#{$val}   { margin       : $size; }
+    .m-x-#{$val} { margin-right : $size; margin-left  : $size; }
+    .m-y-#{$val} { margin-top   : $size; margin-bottom: $size; }
+    .m-t-#{$val} { margin-top   : $size; }
+    .m-r-#{$val} { margin-right : $size; }
+    .m-b-#{$val} { margin-bottom: $size; }
+    .m-l-#{$val} { margin-left  : $size; }
+  }
+}
+@mixin generate-paddings (
+  $steps    : 10,
+  $increment: 5
+){
+  @for $index from 1 through $steps {
+    $val : $index * $increment;
+    $size: unquote($val + 'px');
+
+    .p-#{$val}   { padding       : $size; }
+    .p-x-#{$val} { padding-right : $size; padding-left  : $size; }
+    .p-y-#{$val} { padding-top   : $size; padding-bottom: $size; }
+    .p-t-#{$val} { padding-top   : $size; }
+    .p-r-#{$val} { padding-right : $size; }
+    .p-b-#{$val} { padding-bottom: $size; }
+    .p-l-#{$val} { padding-left  : $size; }
+  }
+}
+
+// Boilerplate
+.m-x-auto {
+  margin-right: auto;
+  margin-left:  auto;
+}
+.m-l-auto {
+  margin-left:  auto;
+}
+.m-r-auto {
+  margin-right: auto;
+}
+
+@include generate-margins(10, 10);
+@include generate-paddings(10, 10);

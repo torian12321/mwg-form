@@ -1,21 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component <Panel /> Should render danger a title on header 1`] = `
+exports[`component <Panel /> Should render a secondary theme 1`] = `
 <div
-  className="panel"
+  className="panel panel--sec"
 >
-  <div
-    className="panel__title"
-  >
-    <span>
-      danger
-    </span>
-  </div>
-  <div
-    className="panel__body"
-  >
-    Lorem Ipsum
-  </div>
+  Lorem Ipsum
 </div>
 `;
 
@@ -23,10 +12,6 @@ exports[`component <Panel /> should render correctly 1`] = `
 <div
   className="panel"
 >
-  <div
-    className="panel__body"
-  >
-    Lorem Ipsum
-  </div>
+  Lorem Ipsum
 </div>
 `;

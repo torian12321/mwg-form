@@ -1,14 +1,17 @@
-# React-test
+# MWG-Form
 
-This repository is heavily under development and unstable.
+Test form
 
-
-The idea of this repository is to, someday, became a boilerplate for my React projects.
-
-now, is just my playground :)
+[View site](https://torian12321.github.io/mwg-form/dist/)
+[Styleguide](https://torian12321.github.io/mwg-form/styleguide/)
 
 
-[Styleguide](https://torian12321.github.io/React-test/styleguide/)
+Main Commands
+---------------
+
+Run `npm run build` to build a new version. See resulst at `./dist/index.html`
+Run `npm run styleguide` to compile a new styleguide version. See resulst at `./styleguide/index.html`
+
 
 Technologies
 ---------------

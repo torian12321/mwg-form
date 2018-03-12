@@ -4,7 +4,7 @@
   "description": "Moving Grocery Forward",
   "license": "MIT",
   "version": "0.0.1",
-  "main": "export.js",
+  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/torian12321/mwg-form"

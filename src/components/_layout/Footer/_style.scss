@@ -1,0 +1,21 @@
+@import '../../../styles/conf/index.scss';
+
+// Vars
+$footer-h         : 3em !default;
+$footer-color-main: $themeColor_1 !default;
+$footer-font-size : $font-size !default;
+
+// Block
+.footer {
+  bottom    : 0;
+  min-height: $footer-h;
+  font-size : $footer-font-size;
+  background: $footer-color-main;
+  display   : block;
+  box-sizing: border-box;
+  box-shadow: 0 -.5rem 1rem fade-out($black, .8);
+  padding   : 0 2em;
+  z-index   : 100;
+
+  @include smart-text-color($footer-color-main);
+}

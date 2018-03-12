@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component <Button /> should have a large size 1`] = `
+<button
+  className="btn btn--threeD btn--large"
+  disabled={false}
+  onClick={undefined}
+>
+  Submit
+</button>
+`;
+
+exports[`component <Button /> should have disabled 1`] = `
+<button
+  className="btn"
+  disabled={true}
+  onClick={[Function]}
+>
+  Submit
+</button>
+`;
+
+exports[`component <Button /> should render correctly 1`] = `
+<button
+  className="btn"
+  disabled={false}
+  onClick={[Function]}
+>
+  Submit
+</button>
+`;

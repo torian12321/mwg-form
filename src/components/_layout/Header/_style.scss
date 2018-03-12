@@ -1,0 +1,36 @@
+@import '../../../styles/conf/index.scss';
+
+// Vars
+$header-color-main: $themeColor_1 !default;
+$header-font-size : $font-size !default;
+
+// Block
+.header {
+  top       : 0;
+  font-size : $header-font-size;
+  background: $header-color-main;
+  display   : block;
+  box-sizing: border-box;
+  box-shadow: 0 0.5rem 1rem fade-out($black, .8);
+  padding   : 0 2em;
+  z-index   : 100;
+
+  @include smart-text-color($header-color-main);
+
+  // Elements
+  &__nav {
+    position: relative;
+    padding : 10px 0 4px;
+  }
+
+  // Modifiers
+  &--sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
+  &__logo {
+    height: 46px;
+    width : auto;
+  }
+}

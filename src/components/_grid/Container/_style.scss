@@ -1,0 +1,17 @@
+@import '../../../styles/conf/index.scss';
+
+.container,
+.container-fluid {
+  width     : 100%;
+  display   : block;
+  margin    : 0 auto;
+  box-sizing: border-box;
+  padding   : 0 floor(($grid-gutter-width / 2));
+  @include clearfix();
+}
+
+.container {
+  @include bp-sm { max-width: ($bp_sm - 40); }
+  @include bp-md { max-width: ($bp_md - 40); }
+  @include bp-lg { max-width: ($bp_lg - 40); }
+}

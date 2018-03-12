@@ -1,0 +1,43 @@
+@mixin gradient(
+  $startColor: $themeColor_1,
+  $endColor  : lighten($startColor, 10%),
+  $angle     : 90deg
+){
+  background-color: $startColor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient($angle, $startColor, $endColor);
+  background-image:    -moz-linear-gradient($angle, $startColor, $endColor);
+  background-image:     -ms-linear-gradient($angle, $startColor, $endColor);
+  background-image:      -o-linear-gradient($angle, $startColor, $endColor);
+  background-image:         linear-gradient($angle, $startColor, $endColor);
+}
+
+@mixin background-img (
+  $BG-url  : $imgDir + 'img.png',
+  $position: center center,
+  $size    : cover,
+  $repeat  : no-repeat
+){
+  background             : url($BG-url) $repeat $position;
+
+  background-size        : $size;
+  -moz-background-size   : $size;
+  -webkit-background-size: $size;
+}
+@mixin background-parallax (
+  $BG-url  : $imgDir + 'img.png',
+  $position: center center
+){
+  background: url($BG-url) $position no-repeat fixed;
+  @include background-cover();
+}
+@mixin background-cover (
+  $position: center center,
+  $repeat  : no-repeat
+){
+  background-position    : $position;
+  background-repeat      : $repeat;
+  background-size        : cover;
+  -moz-background-size   : cover;
+  -webkit-background-size: cover;
+}

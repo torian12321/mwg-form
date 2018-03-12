@@ -1,0 +1,65 @@
+@import '../../styles/conf/index.scss';
+
+// Vars
+$loading-size         : 32px !default;
+$loading-color        : $themeColor_1 !default;
+$loading-color-disable: $colorState_disable !default;
+
+// Styles
+.loading{
+  font-size : $loading-size;
+  display   : block;
+  opacity   : .8;
+  box-sizing: border-box;
+  margin    : auto;
+  width     : 1em;
+  height    : 1em;
+  @include rounded-circular();
+
+  // Modifiers
+  &--spinner{
+    background      : transparent;
+    border          : $loading-color-disable .1em solid;
+    border-top-color: $loading-color;
+
+    // Animation
+    @-moz-keyframes    loading-spin { 100% { -moz-transform   : rotate(360deg); } }
+    @-webkit-keyframes loading-spin { 100% { -webkit-transform: rotate(360deg); } }
+    @keyframes 		     loading-spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    @include animation(loading-spin, 1s);
+  }
+  &--pulse{
+    width     : .4em;
+    height    : .4em;
+    margin    : 1em auto;
+    background: $loading-color;
+
+    // Animation
+    $pulse-color: $themeColor_1;
+    $size       : .5em;
+
+    @-moz-keyframes loading-pulse {
+      0% 	 { -moz-box-shadow : 0 0 0 0     fade-out($pulse-color, .4);  }
+      70%  { -moz-box-shadow : 0 0 0 $size fade-out($pulse-color, 1); }
+      100% { -moz-box-shadow : 0 0 0 0     fade-out($pulse-color, 1); }
+    }
+    @-webkit-keyframes loading-pulse {
+      0% 	 { -webkit-box-shadow : 0 0 0 0     fade-out($pulse-color, .4);  }
+      70%  { -webkit-box-shadow : 0 0 0 $size fade-out($pulse-color, 1); }
+      100% { -webkit-box-shadow : 0 0 0 0     fade-out($pulse-color, 1); }
+    }
+    @keyframes loading-pulse {
+      0%   { box-shadow : 0 0 0 0     fade-out($pulse-color, .4);  }
+      70%  { box-shadow : 0 0 0 $size fade-out($pulse-color, 1); }
+      100% { box-shadow : 0 0 0 0     fade-out($pulse-color, 1); }
+    }
+
+    @include animation(loading-pulse, 1.4s);
+  }
+
+  // // Sizes
+  &--xs{font-size: $loading-size * 0.5;}
+  &--sm{font-size: $loading-size;}
+  &--md{font-size: $loading-size * 1.5;}
+  &--lg{font-size: $loading-size * 2.5;}
+}

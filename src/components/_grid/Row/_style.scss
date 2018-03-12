@@ -1,0 +1,6 @@
+@import '../../../styles/conf/index.scss';
+
+.grid-row {
+  display: block;
+  @include clearfix();
+}

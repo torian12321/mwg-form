@@ -1,8 +1,8 @@
 {
-  "name"            : "Aitor",
-  "short_name"      : "Aitor",
-  "description"     : "React Boilerplate",
-  "theme_color"     : "#163b63",
+  "name"            : "MWG",
+  "short_name"      : "MWG",
+  "description"     : "Moving Grocery Forward",
+  "theme_color"     : "#3bc84c",
   "background_color": "#FFFFFF",
   "start_url"       : "index.html?launcher=true",
   "start_path"      : "./",

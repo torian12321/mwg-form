@@ -11,9 +11,9 @@ describe('component', () => {
       )).toMatchSnapshot();
     });
 
-    it('Should render danger a title on header', () => {
+    it('Should render a secondary theme', () => {
       expect(renderer.create(
-        <Panel title='danger'>Lorem Ipsum</Panel>
+        <Panel theme='sec'>Lorem Ipsum</Panel>
       )).toMatchSnapshot();
     });
 

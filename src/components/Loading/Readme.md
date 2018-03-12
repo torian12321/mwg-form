@@ -22,6 +22,6 @@
 ```
 <div>
   <Button><Loading size='xs' /></Button>
-  <Message><Loading /></Message>
+  <Panel><Loading /></Panel>
 </div>
 ```

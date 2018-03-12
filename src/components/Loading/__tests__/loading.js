@@ -17,11 +17,5 @@ describe('component', () => {
       )).toMatchSnapshot();
     });
 
-    test('should render pulse type', () => {
-      expect(renderer.create(
-        <Loading type='pulse' />
-      )).toMatchSnapshot();
-    });
-
   });
 });

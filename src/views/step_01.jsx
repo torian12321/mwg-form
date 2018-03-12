@@ -1,4 +1,5 @@
-import React from 'react';
+import React      from 'react';
+import PropTypes  from 'prop-types';
 import './_style.scss';
 
 import {
@@ -18,7 +19,7 @@ const FormStep_01 = props =>(
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet minima veniam soluta dolorum est quibusdam animi maxime odit? Alias debitis in numquam commodi iste et modi maxime soluta vero similique. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet minima veniam soluta dolorum est quibusdam animi maxime odit? Alias debitis in numquam commodi iste et modi maxime soluta vero similique.</p>
 
           <div className='panel__btnArea'>
-            <Button color='sec' className='right'>Next</Button>
+            <Button color='sec' className='right' onClick={props.onSubmit}>Next</Button>
           </div>
         </Panel>
       </Col>
@@ -26,5 +27,9 @@ const FormStep_01 = props =>(
 
   </Container>
 );
+
+FormStep_01.propTypes = {
+  onSubmit: PropTypes.func
+};
 
 module.exports = FormStep_01;

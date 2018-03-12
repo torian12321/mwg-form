@@ -12,8 +12,14 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formStep : 2
+      formStep : 1
     };
+  }
+
+  nextStep() {
+    this.setState({
+      formStep: this.state.formStep +1,
+    });
   }
 
   render() {
@@ -21,8 +27,8 @@ class Form extends React.Component {
       <div className='formPage'>
         <Header />
 
-        { this.state.formStep == 1 && <FormStep_01 /> }
-        { this.state.formStep == 2 && <FormStep_02 /> }
+        { this.state.formStep == 1 && <FormStep_01 onSubmit={this.nextStep.bind(this)} /> }
+        { this.state.formStep == 2 && <FormStep_02 onSubmit={this.nextStep.bind(this)} /> }
         { this.state.formStep == 3 && <FormStep_03 /> }
 
       </div>

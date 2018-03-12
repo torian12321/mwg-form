@@ -1,4 +1,5 @@
-import React from 'react';
+import React      from 'react';
+import PropTypes  from 'prop-types';
 import './_style.scss';
 
 import {
@@ -80,7 +81,7 @@ render() {
             </Row>
 
             <div className='panel__btnArea'>
-              <Button className='right' disabled={!this.state.validForm}>Submit</Button>
+              <Button className='right' onClick={this.props.onSubmit} disabled={!this.state.validForm}>Submit</Button>
             </div>
           </Panel>
         </Col>
@@ -91,5 +92,8 @@ render() {
   }
 };
 
+FormStep_02.propTypes = {
+  onSubmit: PropTypes.func
+};
 
 module.exports = FormStep_02;

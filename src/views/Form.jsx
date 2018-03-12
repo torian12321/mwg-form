@@ -12,7 +12,7 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formStep : 1
+      formStep : 2
     };
   }
 

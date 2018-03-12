@@ -13,29 +13,93 @@ class FormStep_02 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name       : { isValid: false, value  : '' },
-      surname    : { isValid: false, value  : '' },
-      birthday   : { isValid: false, value  : '' },
-      nacionality: { isValid: false, value  : '' },
-      mail       : { isValid: false, value  : '' },
-      ocupation  : { isValid: false, value  : '' },
+      name       : { isValid: true, value  : '', state: '' },
+      surname    : { isValid: true, value  : '', state: '' },
+      birthday   : { isValid: true, value  : '', state: '' },
+      nacionality: { isValid: true, value  : '', state: '' },
+      email      : { isValid: true, value  : '', state: '' },
+      ocupation  : { isValid: true, value  : '', state: '' },
       validForm  : true // Should start on false, is true for testing porpouse
     };
   }
 
-  validateName(inputVal) {
-    // TODO: do some kind of validation
-    const name = {
-      value  : inputVal,
-      isValid: true
-    }
-    this.setState({ name });
-    this.validateForm();
+  _isEmpty(str) {
+      return (!str || 0 === str.length);
+  }
+  _isEmail(str) {
+    // TODO: add email validation
+    return true;
+}
+  _inputSetState(isValid){
+    return isValid ? 'success' : 'error';
   }
 
-  // TODO: repeat 'validateName' for rest of fields, applying differen validation criteria
-  // ....
-  // ....
+  validateName(inputVal) {
+    const validField = !this._isEmpty(inputVal);
+    this.setState({
+      name: {
+        value  : inputVal,
+        isValid: validField,
+        state  : this._inputSetState(validField)
+      }
+    });
+    this.validateForm();
+  }
+  validateSurname(inputVal) {
+    const validField = !this._isEmpty(inputVal);
+    this.setState({
+      surname: {
+        value  : inputVal,
+        isValid: validField,
+        state  : this._inputSetState(validField)
+      }
+    });
+    this.validateForm();
+  }
+  validateBirthday(inputVal) {
+    const validField = !this._isEmpty(inputVal);
+    this.setState({
+      birthday: {
+        value  : inputVal,
+        isValid: validField,
+        state  : this._inputSetState(validField)
+      }
+    });
+    this.validateForm();
+  }
+  validateNacionality(inputVal) {
+    const validField = !this._isEmpty(inputVal);
+    this.setState({
+      nacionality: {
+        value  : inputVal,
+        isValid: validField,
+        state  : this._inputSetState(validField)
+      }
+    });
+    this.validateForm();
+  }
+  validateEmail(inputVal) {
+    const validField = !this._isEmpty(inputVal) && this._isEmail;
+    this.setState({
+      email: {
+        value  : inputVal,
+        isValid: validField,
+        state  : this._inputSetState(validField)
+      }
+    });
+    this.validateForm();
+  }
+  validateOcupation(inputVal) {
+    const validField = !this._isEmpty(inputVal);
+    this.setState({
+      ocupation: {
+        value  : inputVal,
+        isValid: validField,
+        state  : this._inputSetState(validField)
+      }
+    });
+    this.validateForm();
+  }
 
   validateForm(){
     // Enable/Disable button
@@ -50,44 +114,46 @@ class FormStep_02 extends React.Component {
       // this.setState({ validForm: isValid });
       this.setState({ validForm: true });         // For testing, returns alway true
   }
-render() {
+  render() {
 
-  return (
-    <Container className='containerForm'>
+    let st = this.state;
 
-      <Row>
-        <Col xs={12}>
-          <Panel theme='sec'>
+    return (
+      <Container className='containerForm'>
 
-            <Row>
-              <Col xs={12} md={6}>
-                <Input value={this.state.name.value} onChange={this.validateName.bind(this)} label='First Name' placeholder='John' state='success'/>
-              </Col>
-              <Col xs={12} md={6}>
-                <Input value={this.state.surname.value} label='Surname' placeholder='Smith' />
-              </Col>
-              <Col xs={12} md={6}>
-                <Input value={this.state.name.birthday} label='Date of birth' placeholder='01/01/1980' />
-              </Col>
-              <Col xs={12} md={6}>
-                <Input value={this.state.name.naionality} label='Naionality' placeholder='Irish' />
-              </Col>
-              <Col xs={12} md={6} state>
-                <Input value={this.state.name.email} label='Email Address' placeholder='hello@info.com' state='error' info='Specific Error Feedback Text: located where the input is'/>
-              </Col>
-              <Col xs={12} md={6}>
-                <Input value={this.state.name.ocupation} label='Ocupation' placeholder='Front End Developer' />
-              </Col>
-            </Row>
+        <Row>
+          <Col xs={12}>
+            <Panel theme='sec'>
 
-            <div className='panel__btnArea'>
-              <Button className='right' onClick={this.props.onSubmit} disabled={!this.state.validForm}>Submit</Button>
-            </div>
-          </Panel>
-        </Col>
-      </Row>
+              <Row>
+                <Col xs={12} md={6}>
+                  <Input value={st.name.value} label='First Name' placeholder='John' state={st.name.state} info='Invalid name' onChange={this.validateName.bind(this)} />
+                </Col>
+                <Col xs={12} md={6}>
+                  <Input value={st.surname.value} label='Surname' placeholder='Smith' state={st.surname.state} info='Invalid surname' onChange={this.validateSurname.bind(this)} />
+                </Col>
+                <Col xs={12} md={6}>
+                  <Input value={st.birthday.value} label='Date of birth' placeholder='01/01/1980' state={st.birthday.state} info='Invalid Birthday' onChange={this.validateBirthday.bind(this)} />
+                </Col>
+                <Col xs={12} md={6}>
+                  <Input value={st.nacionality.value} label='Naionality' placeholder='Irish' state={st.nacionality.state} info='Invalid Nacionality' onChange={this.validateNacionality.bind(this)}/>
+                </Col>
+                <Col xs={12} md={6} state>
+                  <Input value={st.email.value} label='Email Address' placeholder='hello@info.com' state={st.email.state} info='Invalid Email' onChange={this.validateEmail.bind(this)} />
+                </Col>
+                <Col xs={12} md={6}>
+                  <Input value={st.ocupation.value} label='Ocupation' placeholder='Front End Developer' state={st.ocupation.state} info='Invalid Ocupation' onChange={this.validateOcupation.bind(this)} />
+                </Col>
+              </Row>
 
-    </Container>
+              <div className='panel__btnArea'>
+                <Button className='right' onClick={this.props.onSubmit} disabled={!st.validForm}>Submit</Button>
+              </div>
+            </Panel>
+          </Col>
+        </Row>
+
+      </Container>
     )
   }
 };

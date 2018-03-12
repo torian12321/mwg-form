@@ -79,7 +79,11 @@ class Input extends React.Component {
 					disabled     = {this.props.disabled}
 				/>
         <div className ='input__icon' />
-        <span className='input__info'>{this.props.info}</span>
+        <span className='input__info'>
+          {this.props.state === ('error') &&
+            this.props.info
+          }
+        </span>
 
 			</div>
 		);

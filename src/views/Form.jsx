@@ -18,16 +18,15 @@ class Form extends React.Component {
 
   render() {
     return (
-    <div className='formPage'>
-      <Header />
+      <div className='formPage'>
+        <Header />
 
-      { this.state.formStep == 1 && <FormStep_01 /> }
-      { this.state.formStep == 2 && <FormStep_02 /> }
-      { this.state.formStep == 3 && <FormStep_03 /> }
+        { this.state.formStep == 1 && <FormStep_01 /> }
+        { this.state.formStep == 2 && <FormStep_02 /> }
+        { this.state.formStep == 3 && <FormStep_03 /> }
 
-      
-    </div>
-    );
+      </div>
+    )
   }
 }
 

@@ -2,24 +2,34 @@
 
 
 .formPage {
-    position  : relative;
-    min-height: 100vh;
-    max-height: 1000px;
-    background-image: url('../img/form-bg.png');
+  position  : relative;
+  min-height: 100vh;
+  max-height: 1000px;
+  background-repeat: no-repeat;
+  background-size  : cover;
+  background-image : url('../img/form-bg.png');
 
+  .panel__btnArea {
+    width  : 100%;
+    margin : 12px 0 0;
+    display: inline-block;
+  }
 
-    .panel__btnArea {
-        width  : 100%;
-        margin : 12px 0 0;
-        display: inline-block;
+  .panelWellcome {
+    margin-top: 45vh;
+    transform : translate(0, -60%);
+  }
+
+  .containerForm {
+    margin-top: 60px;
+  }
+
+  .panelThanks {
+    margin-top: 45vh;
+    transform : translate(0, -60%);
+    h1 {
+      font-size: 48px;
+      margin   : 0;
     }
-
-    .panel--thanks {
-        margin-top: 45vh;
-        transform : translate(0, -60%);
-        h1 {
-            font-size: 48px;
-            margin   : 0;
-        }
-    }
+  }
 }

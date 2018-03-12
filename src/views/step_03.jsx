@@ -12,7 +12,7 @@ const FormStep_03 = props =>(
 
     <Row>
       <Col xs={8} xsOffset={2} sm={6} smOffset={2} md={4} smOffset={4}>
-        <Panel theme='sec' className='panel--thanks'>
+        <Panel theme='sec' className='panelThanks'>
           <h1>Thank You</h1>
         </Panel>
       </Col>

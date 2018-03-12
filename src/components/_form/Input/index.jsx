@@ -62,7 +62,7 @@ class Input extends React.Component {
         )}
 			>
       {this.props.label &&
-        <label className='input__label' for={id}>
+        <label className='input__label' htmlFor={id}>
           {this.props.label}
         </label>
       }
